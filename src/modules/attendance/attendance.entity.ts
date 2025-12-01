@@ -6,6 +6,7 @@ import { Contact } from '@/modules/contact/contact.entity';
 import { Service } from '@/modules/service/service.entity';
 import { Account } from '@/modules/account/account.entity';
 import { ServiceChannel } from '@/modules/service_channel/serviceChannel.entity';
+import { AttendanceMessage } from '../attendance_message/attendanceMessage.entity';
 
 export enum AttendanceStatus {
   AWAITING_SERVICE = 'awaiting service',
@@ -88,4 +89,7 @@ export class Attendance {
 
   @OneToMany(() => AttendanceTag, attendanceTag => attendanceTag.attendance)
   tags!: AttendanceTag[];
+
+  @OneToMany(() => AttendanceMessage, message => message.attendance)
+  messages!: AttendanceMessage[];
 }
